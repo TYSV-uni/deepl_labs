@@ -1,0 +1,3 @@
+variant,max_abs_change_running_mean,max_abs_change_running_var
+set_train_mode,0.0,0.0
+model_train,0.08856797218322754,0.14842790365219116

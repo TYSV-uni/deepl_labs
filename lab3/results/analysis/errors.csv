@@ -1,0 +1,6 @@
+file,true_class,predicted_class,predicted_prob,n_such_errors
+20179.jpg,glacier,mountain,0.9420865178108215,38
+20093.jpg,mountain,glacier,0.6798798441886902,28
+20246.jpg,buildings,street,0.9979619979858398,22
+20234.jpg,street,buildings,0.9829868078231812,20
+20243.jpg,glacier,sea,0.9739940166473389,16

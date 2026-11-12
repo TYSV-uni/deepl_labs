@@ -1,0 +1,22 @@
+regime,variant,module,params_changed,bn_stats_changed,matches_expected
+frozen,set_train_mode,conv1,no,no BN,yes
+frozen,set_train_mode,bn1,no,no,yes
+frozen,set_train_mode,layer1,no,no,yes
+frozen,set_train_mode,layer2,no,no,yes
+frozen,set_train_mode,layer3,no,no,yes
+frozen,set_train_mode,layer4,no,no,yes
+frozen,set_train_mode,fc,yes,no BN,yes
+unfreeze,set_train_mode,conv1,no,no BN,yes
+unfreeze,set_train_mode,bn1,no,no,yes
+unfreeze,set_train_mode,layer1,no,no,yes
+unfreeze,set_train_mode,layer2,no,no,yes
+unfreeze,set_train_mode,layer3,no,no,yes
+unfreeze,set_train_mode,layer4,yes,yes,yes
+unfreeze,set_train_mode,fc,yes,no BN,yes
+frozen,model_train,conv1,no,no BN,yes
+frozen,model_train,bn1,no,yes,no
+frozen,model_train,layer1,no,yes,no
+frozen,model_train,layer2,no,yes,no
+frozen,model_train,layer3,no,yes,no
+frozen,model_train,layer4,no,yes,no
+frozen,model_train,fc,yes,no BN,yes

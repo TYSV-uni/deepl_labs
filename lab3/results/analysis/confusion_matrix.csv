@@ -1,0 +1,7 @@
+true\predicted,buildings,forest,glacier,mountain,sea,street
+buildings,193,0,0,2,2,22
+forest,0,235,1,0,0,1
+glacier,1,0,221,38,16,1
+mountain,1,0,28,220,13,1
+sea,2,0,2,4,247,0
+street,20,0,1,0,1,229

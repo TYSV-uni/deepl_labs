@@ -1,0 +1,124 @@
+{
+  "regime": "frozen",
+  "seed": 1,
+  "settings": {
+    "regime": "frozen",
+    "seed": 1,
+    "seeding": "torch.manual_seed(seed); np.random.seed(seed) before model construction",
+    "weights": "ResNet18_Weights.IMAGENET1K_V1",
+    "trainable_modules": [
+      "fc"
+    ],
+    "eval_modules_during_training": [
+      "conv1",
+      "bn1",
+      "layer1",
+      "layer2",
+      "layer3",
+      "layer4"
+    ],
+    "n_params_total": 11179590,
+    "n_params_trainable": 3078,
+    "classes": [
+      "buildings",
+      "forest",
+      "glacier",
+      "mountain",
+      "sea",
+      "street"
+    ],
+    "img_size": 160,
+    "transforms": {
+      "train": "Compose(\n    RandomResizedCrop(size=(160, 160), scale=(0.7, 1.0), ratio=(0.75, 1.3333), interpolation=bilinear, antialias=True)\n    RandomHorizontalFlip(p=0.5)\n    ToTensor()\n    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))\n)",
+      "eval": "Compose(\n    Resize(size=(160, 160), interpolation=bilinear, max_size=None, antialias=True)\n    ToTensor()\n    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))\n)"
+    },
+    "normalize": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "model": "torchvision.models.resnet18",
+    "fc": "Linear(512, 6)",
+    "bn": {
+      "momentum": 0.1,
+      "eps": 1e-05
+    },
+    "optimizer": {
+      "name": "torch.optim.AdamW",
+      "defaults": {
+        "lr": 0.001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0001,
+        "amsgrad": false,
+        "maximize": false,
+        "foreach": null,
+        "capturable": false,
+        "differentiable": false,
+        "fused": null,
+        "decoupled_weight_decay": true
+      },
+      "groups": [
+        {
+          "name": "fc",
+          "lr": 0.003,
+          "params": 3078
+        }
+      ]
+    },
+    "loss": "CrossEntropyLoss()",
+    "epochs": 8,
+    "steps_per_epoch": 38,
+    "total_steps": 304,
+    "train_loader": {
+      "batch_size": 32,
+      "shuffle": true,
+      "drop_last": false,
+      "num_workers": 0
+    },
+    "eval_loader": {
+      "batch_size": 64,
+      "shuffle": false,
+      "num_workers": 0
+    },
+    "metric": "f1_score(average='macro')"
+  },
+  "git_commit": "cd44126b85fdcd60a429204047b298d60cdce8c1",
+  "git_uncommitted_changes": true,
+  "split_sha256": "43ea940908e7ce0bc48bf9ea7493ca083f69a8e051600cd8b0c436383f805b0a",
+  "python": "3.12.15",
+  "torch": "2.8.0+cu128",
+  "torchvision": "0.23.0+cu128",
+  "device": "NVIDIA GeForce RTX 4060 Ti",
+  "train_loss": [
+    0.6453321651617686,
+    0.28402119874954224,
+    0.25216483036677045,
+    0.22266528030236563,
+    0.21377676159143447,
+    0.20132139603296917,
+    0.1754325603445371,
+    0.17586258704463642
+  ],
+  "val_macro_f1": [
+    0.8799985930226973,
+    0.8793247937204246,
+    0.8869731606370429,
+    0.8664257911747222,
+    0.8853541080556853,
+    0.8845982397205377,
+    0.8836816536716992,
+    0.883606355171385
+  ],
+  "train_time_sec": 20.113767037999423
+}

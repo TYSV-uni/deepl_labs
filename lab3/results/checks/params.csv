@@ -1,0 +1,5 @@
+regime,total_params,trainable_params,group,group_params,lr,no_frozen_in_optimizer,matches_table
+scratch,11179590,11179590,all,11179590,0.003,yes,yes
+frozen,11179590,3078,fc,3078,0.003,yes,yes
+unfreeze,11179590,8396806,fc,3078,0.003,yes,yes
+unfreeze,11179590,8396806,layer4,8393728,0.0003,yes,yes
